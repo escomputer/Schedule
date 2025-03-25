@@ -7,20 +7,23 @@ API명세서
    4. 요청 예시 -
       POST /schedules HTTP/1.1
       Content-Type: application/json
-<br>{
+      <br>```
+      {
 "task": "일정1",
 "author": "스파르타",
 "password": "1234"
-}
+}```
 
-   5. 응답 예시 - HTTP/1.1 201 Created
+   6. 응답 예시 - HTTP/1.1 201 Created
       Content-Type: application/json<br>
-"id": 1,
-"task": "일정1",
-"author": "스파르타",
-"created_at": "2025-03-25T10:00:00",
-"updated_at": "2025-03-25T10:00:00"
-}
+      ```
+      {"id": 1,
+      "task": "일정1",
+      "author": "스파르타",
+      "created_at": "2025-03-25T10:00:00",
+      "updated_at": "2025-03-25T10:00:00"
+      }
+      ```
 
     
 2. 전체 일정 조회
