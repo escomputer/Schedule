@@ -14,4 +14,5 @@ public interface ScheduleRepository {
     Optional<ScheduleResponseDto> findById(Long id);
 
 
+    ScheduleResponseDto updateSchedule(Schedule schedule);
 }

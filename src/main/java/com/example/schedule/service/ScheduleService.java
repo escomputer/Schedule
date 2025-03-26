@@ -16,4 +16,5 @@ public interface ScheduleService {
     List<ScheduleResponseDto> getSchedules(String updatedAt, String author);
 
 
+    ScheduleResponseDto updateSchedule(Long id, ScheduleRequestDto requestDto, String password);
 }

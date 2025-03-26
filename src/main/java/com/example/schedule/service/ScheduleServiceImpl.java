@@ -6,6 +6,7 @@
     import com.example.schedule.repository.ScheduleRepository;
     import org.springframework.stereotype.Service;
 
+    import java.time.LocalDateTime;
     import java.util.List;
     import java.util.Optional;
 
@@ -35,5 +36,29 @@
             return scheduleRepository.findById(id);
         }
 
+        @Override
+        public ScheduleResponseDto updateSchedule(Long id, ScheduleRequestDto requestDto, String password){
+            ScheduleResponseDto scheduleDto = scheduleRepository.findById(id)
+                    .stream()
+                    .findFirst()        //optional로 반환 되어서 맨 첫번째것 = 어짜피 하나만 나온다.
+                    .orElseThrow(()->new RuntimeException("일정을 찾을 수 없습니다."));
 
+            Schedule updatedSchedule = new Schedule(
+                    requestDto.getTask(),
+                    requestDto.getAuthor(),
+                    requestDto.getPassword()
+            );
+
+            if (!requestDto.getPassword().equals(password)) {
+                throw new RuntimeException("비밀번호가 일치하지 않습니다.");
+            }
+
+
+            updatedSchedule.setTask(requestDto.getTask());
+            updatedSchedule.setAuthor(requestDto.getAuthor());
+            updatedSchedule.setUpdatedAt(LocalDateTime.now());
+
+
+        return scheduleRepository.updateSchedule(updatedSchedule);
+        }
     }

@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -85,6 +86,16 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
         ));
 
         return schedules.isEmpty() ? Optional.empty() : Optional.of(schedules.get(0));
+    }
+
+    @Override
+    public ScheduleResponseDto updateSchedule(Schedule schedule) {
+        String sql="UPDATE schedules SET task=? , author=? ,updated_at=? WHERE id=?";
+        Timestamp updatedAt = Timestamp.valueOf(schedule.getUpdatedAt());
+
+        jdbcTemplate.update(sql, schedule.getTask(), schedule.getAuthor(), updatedAt,schedule.getId());
+
+        return new ScheduleResponseDto(schedule);
     }
 
 }
