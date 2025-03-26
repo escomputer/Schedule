@@ -61,4 +61,12 @@
 
         return scheduleRepository.updateSchedule(updatedSchedule);
         }
+
+
+        @Override
+        public void deleteSchedule(Long id, String password) {
+
+          scheduleRepository.deleteSchedule(id);
+
+        }
     }

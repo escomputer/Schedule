@@ -17,6 +17,7 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
+
     public ScheduleRepositoryImpl(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -97,6 +98,14 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
 
         return new ScheduleResponseDto(schedule);
     }
+
+
+    @Override
+    public void deleteSchedule(Long id) {
+        String sql="DELETE FROM schedules WHERE id=? ";
+        jdbcTemplate.update(sql, id);
+    }
+
 
 }
 

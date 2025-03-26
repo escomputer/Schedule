@@ -15,4 +15,8 @@ public interface ScheduleRepository {
 
 
     ScheduleResponseDto updateSchedule(Schedule schedule);
+
+    void deleteSchedule(Long id);
+
+
 }
