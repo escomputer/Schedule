@@ -2,7 +2,6 @@ package com.example.schedule.controller;
 
 import com.example.schedule.dto.ScheduleRequestDto;
 import com.example.schedule.dto.ScheduleResponseDto;
-import com.example.schedule.entitiy.Schedule;
 import com.example.schedule.service.ScheduleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +24,7 @@ public class ScheduleController {
     //스케줄 생성
     @PostMapping
     public ResponseEntity<ScheduleResponseDto> createSchedule(@RequestBody ScheduleRequestDto requestDto) {
-        return new ResponseEntity<>(scheduleService.saveSchedule(requestDto), HttpStatus.CREATED);
+        return new ResponseEntity<>(scheduleService.createSchedule(requestDto), HttpStatus.CREATED);
 
     }
 }
