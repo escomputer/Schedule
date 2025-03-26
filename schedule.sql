@@ -6,6 +6,7 @@ CREATE TABLE schedules (
     created_at datetime not null ,
     changed_at datetime not null );
 
-
 alter table schedules modify column changed_at datetime default current_timestamp on update current_timestamp;la
+ㅁㅁ
 desc schedules;
+tla
