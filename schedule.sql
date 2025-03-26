@@ -3,5 +3,5 @@ CREATE TABLE schedules (
     author varchar(255) not null ,
     task varchar(255) not null ,
     password varchar(255) not null ,
-    created_at datetime not null ,
-    changed_at datetime not null );
+    created_at datetime default current_timestamp ,
+    changed_at datetime default current_timestamp on update current_timestamp);
