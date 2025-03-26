@@ -73,16 +73,18 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
         ));
     }
     @Override
-    public List<ScheduleResponseDto> findById(Long id) {
+    public Optional<ScheduleResponseDto> findById(Long id) {
         String sql = "SELECT * FROM schedules WHERE id=?"; // 입력받는 아이디에 해당하는 정보 조회
 
-        return jdbcTemplate.query(sql,  new Object[]{id}, (rs, rowNum) -> new ScheduleResponseDto(
+        List<ScheduleResponseDto> schedules = jdbcTemplate.query(sql,  new Object[]{id}, (rs, rowNum) -> new ScheduleResponseDto(
                 rs.getLong("id"),
                 rs.getString("task"),
                 rs.getString("author"),
                 rs.getTimestamp("created_at").toLocalDateTime(),
                 rs.getTimestamp("updated_at").toLocalDateTime()
         ));
+
+        return schedules.isEmpty() ? Optional.empty() : Optional.of(schedules.get(0));
     }
 
 }

@@ -7,6 +7,7 @@
     import org.springframework.stereotype.Service;
 
     import java.util.List;
+    import java.util.Optional;
 
     @Service
     public class ScheduleServiceImpl implements ScheduleService {
@@ -30,7 +31,7 @@
         }
 
         @Override
-        public List<ScheduleResponseDto> getScheduleById(Long id) {
+        public Optional<ScheduleResponseDto> getScheduleById(Long id) {
             return scheduleRepository.findById(id);
         }
 
