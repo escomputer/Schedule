@@ -57,7 +57,7 @@ API 명세서
 4. 선택 일정 수정
     1. 메서드 - PUT
     2. URL - /schedules/{id}
-    3. 요청 방식  - @RequestBody
+    3. 요청 방식  - @RequestBody ,@PathVariable,@RequestParam
    4. 요청 예시 -```{ "task": "일정1 완료","author": "스파게티","password": "1234" }```
 
    5. 응답 예시 - 
@@ -74,15 +74,11 @@ API 명세서
 5. 선택 일정 삭제
    1. 메서드 - DELETE
    2. URL - /schedules/{id}
-   3. 요청 방식  - @RequestBody
+   3. 요청 방식  - @RequestParam,@PathVariable
      4. 요청 예시 -
-      ```{ "password": "secure1234" }```
+      ```DELETE localhost:8080/schedules/1?password=1234```
 
-      5. 응답 예시 - 
-      ```
-      { "message": "일정이 삭제되었습니다." }
-      ```
-   6. HTTP 상태 코드 - 200 OK
+   5. HTTP 상태 코드 - 200 OK
 
 ERD 
 ----
