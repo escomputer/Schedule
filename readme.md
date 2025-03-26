@@ -55,7 +55,7 @@ API 명세서
 
 
 4. 선택 일정 수정
-    1. 메서드 - PATCH
+    1. 메서드 - PUT
     2. URL - /schedules/{id}
     3. 요청 방식  - @RequestBody
    4. 요청 예시 -```{ "task": "일정1 완료","author": "스파게티","password": "1234" }```
