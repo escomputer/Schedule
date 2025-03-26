@@ -13,4 +13,11 @@ public class Schedule {
     private String createdAt;
     private String changedAt;
     private String password;
+
+    public Schedule(String task, String author, String password) {
+
+        this.task = task;
+        this.author = author;
+        this.password = password;
+    }
 }

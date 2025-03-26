@@ -1,7 +1,7 @@
 package com.example.schedule.repository;
 
-import org.springframework.stereotype.Repository;
+import com.example.schedule.entitiy.Schedule;
 
-@Repository
-public class ScheduleRepository {
+public interface ScheduleRepository {
+    Schedule saveSchedule(Schedule schedule);
 }

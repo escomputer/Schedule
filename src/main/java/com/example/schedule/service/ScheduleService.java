@@ -1,7 +1,8 @@
 package com.example.schedule.service;
 
-import org.springframework.stereotype.Service;
+import com.example.schedule.dto.ScheduleRequestDto;
+import com.example.schedule.dto.ScheduleResponseDto;
 
-@Service
-public class ScheduleService {
+public interface ScheduleService {
+    ScheduleResponseDto saveSchedule(ScheduleRequestDto requestDto);
 }
