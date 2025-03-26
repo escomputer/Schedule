@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -39,9 +40,10 @@ public class ScheduleController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<ScheduleResponseDto>> getSchedule(@PathVariable Long id) {
-        List<ScheduleResponseDto> schedule = scheduleService.getScheduleById(id);
+    public ResponseEntity<Optional<ScheduleResponseDto>> getSchedule(@PathVariable Long id) {
+        Optional<ScheduleResponseDto> schedule = scheduleService.getScheduleById(id);
         return ResponseEntity.ok(schedule);
     }
+
 
 }
