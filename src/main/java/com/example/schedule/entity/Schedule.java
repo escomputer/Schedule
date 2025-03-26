@@ -17,7 +17,7 @@ public class Schedule {
     private String task;
     private String author;
     private LocalDateTime createdAt;
-    private LocalDateTime changedAt;
+    private LocalDateTime updatedAt;
     private String password;
 
     public Schedule(String task, String author, String password) {
@@ -25,6 +25,6 @@ public class Schedule {
         this.author = author;
         this.password = password;
         this.createdAt = LocalDateTime.now();
-        this.changedAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 }

@@ -30,7 +30,7 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
         parameters.put("author", schedule.getAuthor());
         parameters.put("password", schedule.getPassword());
         parameters.put("created_at", schedule.getCreatedAt());
-        parameters.put("changed_at", schedule.getChangedAt());
+        parameters.put("updated_at", schedule.getUpdatedAt());
 
         Number key = jdbcInsert.executeAndReturnKey(parameters);
 
@@ -40,4 +40,5 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
         // ScheduleResponseDto로 변환하여 반환
         return new ScheduleResponseDto(schedule);
     }
+
 }

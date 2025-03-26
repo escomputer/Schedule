@@ -17,13 +17,13 @@ public class ScheduleResponseDto {
     private String task;
     private String author;
     private LocalDateTime createdAt;
-    private LocalDateTime changedAt;
+    private LocalDateTime updatedAt;
 
     public ScheduleResponseDto(Schedule schedule) {
         this.id=schedule.getId();
         this.task=schedule.getTask();
         this.author=schedule.getAuthor();
         this.createdAt=schedule.getCreatedAt();
-        this.changedAt=schedule.getChangedAt();
+        this.updatedAt=schedule.getUpdatedAt();
     }
 }
