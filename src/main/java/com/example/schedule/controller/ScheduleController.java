@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/schedules")
+
 public class ScheduleController {
     private final ScheduleService scheduleService;
 
@@ -36,4 +37,11 @@ public class ScheduleController {
         List<ScheduleResponseDto> schedules = scheduleService.getSchedules(updatedAt, author);
         return ResponseEntity.ok(schedules);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<List<ScheduleResponseDto>> getSchedule(@PathVariable Long id) {
+        List<ScheduleResponseDto> schedule = scheduleService.getScheduleById(id);
+        return ResponseEntity.ok(schedule);
+    }
+
 }

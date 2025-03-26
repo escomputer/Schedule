@@ -9,10 +9,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class ScheduleRepositoryImpl implements ScheduleRepository {
@@ -75,7 +72,18 @@ public class ScheduleRepositoryImpl implements ScheduleRepository {
                 rs.getTimestamp("updated_at").toLocalDateTime()
         ));
     }
+    @Override
+    public List<ScheduleResponseDto> findById(Long id) {
+        String sql = "SELECT * FROM schedules WHERE id=?"; // 입력받는 아이디에 해당하는 정보 조회
 
+        return jdbcTemplate.query(sql,  new Object[]{id}, (rs, rowNum) -> new ScheduleResponseDto(
+                rs.getLong("id"),
+                rs.getString("task"),
+                rs.getString("author"),
+                rs.getTimestamp("created_at").toLocalDateTime(),
+                rs.getTimestamp("updated_at").toLocalDateTime()
+        ));
+    }
 
 }
 
