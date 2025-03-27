@@ -82,4 +82,4 @@ API 명세서
 
 ERD 
 ----
-![img.png](readme_file/img.png)
+![img_1.png](readme_file/img_1.png)
