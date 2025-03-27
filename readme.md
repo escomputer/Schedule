@@ -42,7 +42,7 @@ API 명세서
    1. 메서드 - GET
     2. URL - /schedules/{id}
     3. 요청 방식  - @PathVariable
-   4. 요청 예시 - *없음*
+   4. 요청 예시 -``` GET localhost:8080/schedules/id ```
    5. 응답 예시 - 
       ```
       { "id": 1, 
@@ -58,7 +58,11 @@ API 명세서
     1. 메서드 - PUT
     2. URL - /schedules/{id}
     3. 요청 방식  - @RequestBody ,@PathVariable,@RequestParam
-   4. 요청 예시 -```{ "task": "일정1 완료","author": "스파게티","password": "1234" }```
+   4. 요청 예시 -
+   ```
+   PUT localhost:8080/schedules/id?password=1234
+   { "task": "일정1 완료","author": "스파게티","password": "1234" }
+   ```
 
    5. 응답 예시 - 
       ```
